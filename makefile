@@ -9,4 +9,5 @@ run:
 
 clean:
 		rm *.o
-		rm *~
+		rm *.ppm
+		rm *.png

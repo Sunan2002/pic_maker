@@ -26,16 +26,18 @@ int main(int argc, char * argv[]){
     }
 
     char data[20];
-    snprintf(data, sizeof(data), "P3\n500 500\n255");
+    snprintf(data, sizeof(data), "P6\n100 100\n255");
     write(fd, data, strlen(data));
     printf("\n wrote in");
- 
+
+
+
     char image[3];
-    for (int i = 0; i < 500; i++){
-        for (int j = 0; j < 500; j++){
-            image[0] = rand() % 255;
-            image[1] = rand() % 255;
-            image[2] = rand() % 255;
+    for (int i = 0; i < 250; i++){
+        for (int j = 0; j < 250; j++){
+            image[0] = (i + j) % 80 ;
+            image[1] = i % 70;
+            image[2] = j % 60;
             snprintf(data, sizeof(data), "\n%d %d %d", image[0], image[1], image[2]);
             write(fd, data, strlen(data));
         }
